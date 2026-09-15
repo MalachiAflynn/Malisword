@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title><%= title %></title>
+  </head>
+  <body>
+    <header>
+      <h1><%= title %></h1>
+    </header>
+    <main>
+      <% if (entries.length === 0) { %>
+      <p>No entries yet.</p>
+      <% } else { %>
+      <ul>
+        <% entries.forEach((entry, i) => { %>
+        <li><a href="/entries/<%= i %>"><%= entry.title %></a></li>
+        <% }); %>
+      </ul>
+      <% } %>
+    </main>
+  </body>
+</html>

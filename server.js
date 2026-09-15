@@ -5,6 +5,37 @@ const app = express();
 
 const PORT = 3000;
 
+app.set("view engine", "ejs");
+app.set("views", "views");
+
+app.use(express.static("public"));
+
+const entries = [
+  { title: "First note", body: "This is the first note." },
+  { title: "Second note", body: "This is the second note." },
+  {
+    title: "Airplane note",
+    body: "Look at this cool plane interior",
+    image: "/airplane.jpg",
+  },
+];
+
+app.get("/entries", (req, res) => {
+  res.render("entries", { title: "My Notes", entries });
+});
+
+app.get("/entries/:id", (req, res) => {
+  const id = Number(req.params.id);
+  const entry = entries[id];
+
+  if (!entry) {
+    res.status(404).render("error", { title: "Not found" });
+    return;
+  }
+
+  res.render("entry", { title: entry.title, entry });
+});
+
 const projects = [
   { name: "Weather app", tag: "javascript" },
   { name: "Portfolio site", tag: "express" },

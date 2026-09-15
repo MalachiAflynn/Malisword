@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title><%= title %></title>
+  </head>
+  <body>
+    <main>
+      <article>
+        <h1><%= entry.title %></h1>
+        <% if (entry.image) { %>
+        <img src="<%= entry.image %>" alt="<%= entry.title %>" width="400" />
+        <% } %>
+        <p><%= entry.body %></p>
+      </article>
+    </main>
+    <footer>
+      <a href="/entries">Back to entries</a>
+    </footer>
+  </body>
+</html>
