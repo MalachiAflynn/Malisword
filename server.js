@@ -11,8 +11,13 @@ app.set("views", "views");
 app.use(express.static("public"));
 
 const entries = [
-  { title: "First note", body: "This is the first note." },
+  {
+    title: "Plane cockpit",
+    body: "A look inside the cockpit.",
+    video: "/cockpit.mp4",
+  },
   { title: "Second note", body: "This is the second note." },
+  { title: "Tic Tac Toe", body: "Two players, same keyboard.", embed: "/tictactoe/" },
   {
     title: "Airplane note",
     body: "Look at this cool plane interior",
