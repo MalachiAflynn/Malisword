@@ -11,6 +11,18 @@
         <% if (entry.image) { %>
         <img src="<%= entry.image %>" alt="<%= entry.title %>" width="400" />
         <% } %>
+        <% if (entry.video) { %>
+        <video src="<%= entry.video %>" controls width="400"></video>
+        <% } %>
+        <% if (entry.embed) { %>
+        <iframe
+          src="<%= entry.embed %>"
+          title="<%= entry.title %>"
+          width="280"
+          height="330"
+          style="border: 0"
+        ></iframe>
+        <% } %>
         <p><%= entry.body %></p>
       </article>
     </main>

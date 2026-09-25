@@ -80,23 +80,21 @@ const projects = [
   { name: "malachi", tag: "flynn" },
 ];
 
+// Post request code
+app.use(express.json());
+
 const wishlist = [];
 
 app.post("/wishlist", (req, res) => {
   const { item, note } = req.body;
-
   if (!item || !note) {
-    res.status(400).json({ error: "item and note are required" });
-    return;
-  }
+  res.status(400).json({ error: "item and note are required" });
+  return;
+}
 
   const newItem = { item, note };
   wishlist.push(newItem);
   res.status(201).json(newItem);
-});
-
-app.get("/wishlist", (req, res) => {
-  res.json(wishlist);
 });
 
 app.get("/", (req, res) => {
@@ -104,9 +102,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/about", (req, res) => {
-  res.send(
-    "This is a web programming course. I am Malachi Flynn taking this course",
-  );
+  res.render("about");
 });
 
 app.get("/Grades", (req, res) => {
@@ -129,3 +125,4 @@ app.use("/api", apiRouter);
 app.listen(PORT, () => {
   console.log(`Listening on http://localhost:${PORT}`);
 });
+

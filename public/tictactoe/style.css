@@ -1,0 +1,97 @@
+:root {
+  --ink: #26251f;
+  --muted: #6f6c60;
+  --line: #c9c4b4;
+  --ground: #faf8f2;
+  --x: #2f6f9f;
+  --o: #b4552d;
+  --win: #e4f0d8;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #ece9e0;
+    --muted: #9c9686;
+    --line: #45423a;
+    --ground: #1b1a17;
+    --x: #7fb6dd;
+    --o: #e08a5f;
+    --win: #2d3a26;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font: 16px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif;
+  display: flex;
+  justify-content: center;
+}
+
+.game {
+  padding: 16px;
+  text-align: center;
+}
+
+.status {
+  margin: 0 0 12px;
+  font-weight: 600;
+  min-height: 1.5em;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 72px);
+  grid-template-rows: repeat(3, 72px);
+  gap: 6px;
+  margin: 0 auto;
+}
+
+.square {
+  font: 700 34px/1 system-ui, sans-serif;
+  color: var(--ink);
+  background: transparent;
+  border: 2px solid var(--line);
+  border-radius: 8px;
+  cursor: pointer;
+  transition:
+    background 120ms ease,
+    border-color 120ms ease;
+}
+
+.square:hover:not(:disabled) {
+  border-color: var(--muted);
+}
+
+.square:disabled {
+  cursor: default;
+}
+
+.square[data-player="X"] {
+  color: var(--x);
+}
+
+.square[data-player="O"] {
+  color: var(--o);
+}
+
+.square.winning {
+  background: var(--win);
+  border-color: currentColor;
+}
+
+.restart {
+  margin-top: 16px;
+  padding: 8px 20px;
+  font: inherit;
+  color: var(--ink);
+  background: transparent;
+  border: 2px solid var(--line);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.restart:hover {
+  border-color: var(--muted);
+}
