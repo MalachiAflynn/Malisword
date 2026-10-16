@@ -17,6 +17,11 @@
   "type": "module",
   "dependencies": {
     "ejs": "^6.0.1",
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "mongodb": "^7.7.0"
   }
+}
+
+"scripts": {
+  "dev": "node --watch --env-file=.env server.js"
 }
